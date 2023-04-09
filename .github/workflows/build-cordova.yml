@@ -6,6 +6,8 @@ on:
             environment:
                 type: environment
                 default: "Local"
+                options:
+                    - "All"
             targets:
                 type: choice
                 description: "Targets to build"
