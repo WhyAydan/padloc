@@ -60,7 +60,7 @@ jobs:
                   path: |
                       packages/extension/dist
                       !packages/extension/dist/web-ext-artifacts
-                      !packages/extension/dist/*.xpi
+                      #!packages/extension/dist/*.xpi
                   if-no-files-found: error
             #- name: Build ZIP for signing Chrome/Edge Extension
             #  uses: cardinalby/webext-buildtools-pack-extension-dir-action@v1
