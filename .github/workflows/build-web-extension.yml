@@ -44,10 +44,8 @@ jobs:
                   PL_BUILD_ENV: ${{ secrets.PL_BUILD_ENV }}
               run: npm run web-extension:build
             - name: Sign for Firefox
-              if: github.event.inputs.environment == 'Beta' || github.event.inputs.environment == 'Production'
               run: cd packages/extension/dist && web-ext sign --id="${{ secrets.PL_WEB_EXTENSION_FIREFOX_ID }}" --channel=unlisted --api-key=${{ secrets.PL_WEB_EXTENSION_FIREFOX_API_KEY }} --api-secret=${{ secrets.PL_WEB_EXTENSION_FIREFOX_API_SECRET }}
             - name: Archive Signed Web Extension (Firefox)
-              if: github.event.inputs.environment == 'Beta' || github.event.inputs.environment == 'Production'
               uses: actions/upload-artifact@v2
               with:
                   name: padloc-web-extension-${{ github.sha }}-signed.xpi
